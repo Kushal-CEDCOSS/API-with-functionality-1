@@ -1,0 +1,42 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+.Home > img{
+    width: 20%;
+    box-shadow: 0 0 8px rgb(100, 100, 100);
+    border-radius: 10px;
+}
+label{
+    font-variant: small-caps;
+    margin: 2% 0%;
+    width:20%;
+    font-weight: 500;
+    font-size: 2vw;
+}
+input{
+    padding: 3% 2%;
+}
+button{
+    width: 15%;
+    padding: 1% 0%;
+    margin-top: 1%;
+    border: none;
+    background-color: rgb(14, 182, 117);
+    color: white;
+    font-size: 2vw;
+    font-weight: 900;
+    font-variant: small-caps;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px grey;
+    transition: all 0.3s ease-in-out;
+}
+button:hover{
+    box-shadow: 0 3px 6px black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}

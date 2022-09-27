@@ -1,0 +1,14 @@
+.Dashboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: dodgerblue;
+    color: rgb(228, 243, 255);
+    font-size: 5vw;
+    font-weight: 900;
+    font-variant: small-caps;
+    
+}
