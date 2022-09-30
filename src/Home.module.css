@@ -5,18 +5,28 @@
     justify-content: center;
     width: 100%;
     min-height: 100vh;
-  }
-.Home > img{
-    width: 20%;
-    box-shadow: 0 0 8px rgb(100, 100, 100);
-    border-radius: 10px;
 }
+.formArea{
+    width: 50%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.formArea > h1{
+    color: red;
+    font-variant: small-caps;
+    font-weight: 900;
+}
+
 label{
     font-variant: small-caps;
     margin: 2% 0%;
-    width:20%;
     font-weight: 500;
     font-size: 2vw;
+    text-align: left !important;
 }
 input{
     padding: 3% 2%;

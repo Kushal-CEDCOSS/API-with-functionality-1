@@ -2,13 +2,87 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 100vh;
     width: 100%;
-    background-color: dodgerblue;
-    color: rgb(228, 243, 255);
-    font-size: 5vw;
-    font-weight: 900;
+}
+.Navbar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0% 3%;
     font-variant: small-caps;
-    
+    background-color: rgb(10, 175, 187);
+    color: white;
+    height: 60px;
+    font-size: 35px;
+    font-weight: 900;
+}
+.ContentArea{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 90vh;
+}
+.Sidebar{
+    width: 25%;
+    min-height: 90vh;
+    display: flex;
+    overflow-y: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0;
+    top: 60px;
+}
+.ContentBar{
+    width: 75%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgb(248, 248, 248);
+    padding: 1% 1%;
+    position: fixed;
+    left: 25%;
+    top: 60px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.ContentBar > h2{
+    font-size: 2.5vw;
+    font-weight: 900;
+    margin-top: 2.5%;
+}
+.ContentBar > h1{
+    font-size: 2.8vw;
+    font-weight: 900;
+    margin-top: 3%;
+}
+
+.Row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin-top: 2%;
+}
+
+.Row > button{
+    background-color: #6849C6;
+    color: white;
+    font-variant: normal !important;
+    font-size: 1.5vw !important;
+    font-weight: 500 !important;
+    width: 20%;
+}
+.TableArea{
+    width: 100%;
 }
