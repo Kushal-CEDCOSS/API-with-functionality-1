@@ -16,6 +16,7 @@ import { SkeletonPage } from "@shopify/polaris";
 import { ProductsMajor, InventoryMajor } from "@shopify/polaris-icons";
 
 const Dashboard = () => {
+  const [error, setError] = useState(false)
   const [newToken, setNewToken] = useState("");
   const [data, setData] = useState([]);
   const [activePage, setActivePage] = useState(1);
@@ -94,12 +95,16 @@ const Dashboard = () => {
     return temp;
   });
 
+  // Accessing token on Component did mount.
   useEffect(() => {
     var token = sessionStorage.getItem("User");
     setNewToken(token);
   }, []);
 
+  console.log(data);
 
+
+  // Functioning after getting token
   useEffect(() => {
     if (newToken === "") {
       return;
@@ -120,8 +125,11 @@ const Dashboard = () => {
       .then((result) => setData(result));
   }, [newToken, activePage, count]);
 
+
+  // Functioning of filters
   useEffect(() => {
     if (data.length === 0) {return;}
+    
     var intermediate = [];
     data.data.rows.map((item) => {
       var temp = [];
@@ -139,6 +147,7 @@ const Dashboard = () => {
   }, [data]);
 
   useEffect(()=> {
+    var count = 0;
     var options = {
       method: "POST",
       headers: {
@@ -146,16 +155,9 @@ const Dashboard = () => {
         Authorization: newToken,
       },
     };
-    var count = 0;
     criteriaArray.map(item => item === "" ? count+=1 : null)
     if(count === 8)
     {
-      fetch(
-        `https://fbapi.sellernext.com/frontend/admin/getAllUsers?activePage=${activePage}&count=${count}`,
-        options
-      )
-        .then((res) => res.json())
-        .then((result) => setData(result));
       return;
     }
     else
