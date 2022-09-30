@@ -139,10 +139,23 @@ const Dashboard = () => {
   }, [data]);
 
   useEffect(()=> {
+    var options = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: newToken,
+      },
+    };
     var count = 0;
     criteriaArray.map(item => item === "" ? count+=1 : null)
     if(count === 8)
     {
+      fetch(
+        `https://fbapi.sellernext.com/frontend/admin/getAllUsers?activePage=${activePage}&count=${count}`,
+        options
+      )
+        .then((res) => res.json())
+        .then((result) => setData(result));
       return;
     }
     else
@@ -151,13 +164,6 @@ const Dashboard = () => {
         var tempString = "";
         criteriaArray.map((item, index) => item === "" ? null : tempString+= `&filter[${headings[index]}][${filterArray[index]}]=${item}`)
         console.log(`https://fbapi.sellernext.com/frontend/admin/getAllUsers?activePage=${activePage}&count=${count}${tempString}`);
-        var options = {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            Authorization: newToken,
-          },
-        };
         fetch(
           `https://fbapi.sellernext.com/frontend/admin/getAllUsers?activePage=${activePage}&count=${count}${tempString}`,
           options
@@ -204,7 +210,7 @@ const Dashboard = () => {
             <>
               <h2>Data Grid...</h2>
               <h1>
-                Showing from {(activePage - 1) * count + 1} to{" "}
+                Showing from {(activePage - 1) * count + 1} to {" "} 
                 {activePage * count} of {data.data.count} users
               </h1>
             </>
